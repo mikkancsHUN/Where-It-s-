@@ -1,0 +1,15 @@
+:root {
+  --clr-background: #231F42;
+  --clr-linear-background: linear-gradient(45deg, #F56B9A, #231F42);
+  --clr-pink: #F56B9A;
+  --clr-white: #FFFFFF;
+  --clr-low-white: #ffffff10;
+  --clr-gray: #00000099;
+  --clr-blue: #37AEAB;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
