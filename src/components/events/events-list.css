@@ -68,7 +68,7 @@
     text-shadow: 1px 1px 1px var(--clr-pink);
 }
 
-.events__artist {
+.events__place {
     font-size: 12px;
     font-family: var(--font-fire);
     color: #FFFFFFCC;

@@ -1,6 +1,7 @@
 
 import EventsList from '../../components/events/EventsList'
 import './events-page.css'
+
 function EventsPage() {
   return (
     <section className="events__page">
