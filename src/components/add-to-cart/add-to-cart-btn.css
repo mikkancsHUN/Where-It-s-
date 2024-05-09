@@ -1,0 +1,11 @@
+.add-to-cart__btn {
+    background: var(--clr-blue);
+    height: 60px;
+    border-radius: 3px;
+    border: none;
+    color: var(--clr-white);
+    font-weight: 600;
+    font-size: 22px;
+    cursor: pointer;
+    width: 100%;
+}

@@ -1,4 +1,4 @@
-.send-order__page {
+.add-to-cart__page {
     background: var(--clr-background);
     padding-bottom: 6rem;
     height: 100vh;
@@ -11,22 +11,23 @@
     padding-right: 3rem;
 }
 
-.send-order__total {
+.add-to-cart__infos {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 7.5%;
     width: 100%;
-    text-align: center;
+    height: 50%;
 }
 
-.send-order__total p {
-    color: #FFFFFFCC;
+.add-to-cart__info {
     font-family: var(--font-fire);
-    font-style: italic;
     font-size: 19px;
-}
-
-.send-order__total-price {
-    color: var(--clr-white);
-    font-family: var(--font-fire);
-    font-size: 32px;
-    font-weight: 700;
-    text-shadow: 1px 1px 1px var(--clr-pink);
+    font-weight: 100;
+    font-style: italic;
+    color: #FFFFFFCC;
+    text-align: center;
+    width: 202px;
+    margin-top: 25px;
 }

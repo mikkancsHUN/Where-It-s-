@@ -1,15 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+  font-family: 'SansitaOne';
+  src: url('/public/fonts/SansitaOne.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
+  /* colors */
   --clr-background: #231F42;
-  --clr-linear-background: linear-gradient(45deg, #F56B9A, #231F42);
+  --clr-linear-background: linear-gradient(180deg, hsla(340, 87%, 69%, 1) 0%, hsla(277, 99%, 60%, 1) 20%, hsla(266, 57%, 32%, 1) 39%, hsla(247, 36%, 19%, 1) 55%);
   --clr-pink: #F56B9A;
   --clr-white: #FFFFFF;
   --clr-low-white: #ffffff10;
   --clr-gray: #00000099;
   --clr-blue: #37AEAB;
+  --clr-prpl: #b134fe;
+ /* fonts */
+  --font-sansita: 'SansitaOne';
+  --font-fire: 'Fire Sans', sans-serif;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+h1 {
+  color: var(--clr-pink);
+  font-family: var(--font-sansita);
+  font-weight: 400;
+  font-size: 2rem;
+  margin-top: 34px;
 }
