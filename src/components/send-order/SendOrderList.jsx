@@ -1,14 +1,16 @@
-import SendOrderListItem from "./SendOrderListItem"
-import './send-order-list.css'
 
+import SendOrderListItem from './SendOrderListItem';
+import './send-order-list.css'
 function SendOrderList() {
+  const orderDataList = JSON.parse(localStorage.getItem('orderData')) || [];
+
   return (
     <ul className="send-order__list">
-      <SendOrderListItem />
-      <SendOrderListItem />
-      <SendOrderListItem />
+      {orderDataList.map((orderData, index) => (
+        <SendOrderListItem order={orderData} key={index} />
+      ))}
     </ul>
-  )
+  );
 }
 
-export default SendOrderList
+export default SendOrderList;

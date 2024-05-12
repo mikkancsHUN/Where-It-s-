@@ -5,8 +5,8 @@
     height: 100%;
     overflow: hidden;
     overflow-y: scroll;
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     scrollbar-width: none;
 }
 

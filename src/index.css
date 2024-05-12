@@ -35,3 +35,16 @@ h1 {
   font-size: 2rem;
   margin-top: 34px;
 }
+
+.warning {
+  font-size: 2rem;
+  font-family: var(--font-fire);
+  color: var(--clr-blue);
+  margin: auto;
+  text-align: center;
+  font-weight: 700;
+}
+
+.d-none {
+  display: none;
+}

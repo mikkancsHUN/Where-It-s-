@@ -14,11 +14,13 @@
     color: var(--clr-blue);
     font-weight: 600;
     font-size: 19px;
+    margin-top: 0.5rem;
 }
 
-.add-to-cart__artist {
+.add-to-cart__place {
     font-family: var(--font-fire);
     color: #FFFFFFB2;
     font-size: 16px;
     font-style: italic;
+    margin-top: 0.5rem;
 }

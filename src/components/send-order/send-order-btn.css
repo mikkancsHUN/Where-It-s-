@@ -9,4 +9,14 @@
     cursor: pointer;
     width: 100%;
     margin-top: 5%;
+    transition: 0.25s;
+}
+.send-order__btn:hover {
+    background: #43d4cf;
+    transform: scale(1.05);
+    
+}
+.send-order__btn:active {
+    background: #30c44e;
+    transform: scale(0.95);transition: 0.1s
 }

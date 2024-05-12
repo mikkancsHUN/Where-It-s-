@@ -22,7 +22,7 @@
     
 }
 
-.add-to-cart__pice-box {
+.add-to-cart__quantity-box {
     border-radius: 3px;
     width: 100%;
     display: flex;
@@ -30,7 +30,7 @@
     justify-content: space-between;
 }
 
-.add-to-cart__piece {
+.add-to-cart__quantity {
     font-size: 28px;
     width: 60%;
     height: 50px;
@@ -42,7 +42,7 @@
     align-items: center;
 }
 
-.add-to-cart__pice-btn {
+.add-to-cart__quantity-btn {
     width: 40%;
     height: 50px;
     font-size: 30px;
@@ -50,4 +50,11 @@
     border: none;
     color: var(--clr-white);
     cursor: pointer;
+    transition: 0.1s;
+}
+.add-to-cart__quantity-btn:hover {
+    background: #f56b9961;
+}
+.add-to-cart__quantity-btn:active {
+    background: var(--clr-pink);
 }

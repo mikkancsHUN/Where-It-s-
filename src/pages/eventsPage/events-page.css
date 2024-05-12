@@ -12,7 +12,7 @@ form {
     position: relative;
     margin-top: 30px;
     width: 100%;
-    padding: 0px 3rem ;
+    padding: 0px 2rem ;
 }
 
 input {
@@ -23,6 +23,10 @@ input {
     border: none;
     padding-left: 3rem;
     color: var(--clr-white);
+    border: 1px solid var(--clr-background);
+}
+input:hover {
+    border: 1px solid gray;
 }
 
 .search-icon {

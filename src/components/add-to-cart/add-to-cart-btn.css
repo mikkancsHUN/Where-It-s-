@@ -8,4 +8,14 @@
     font-size: 22px;
     cursor: pointer;
     width: 100%;
+    transition: 0.25s;
+}
+.add-to-cart__btn:hover {
+    background: #43d4cf;
+    transform: scale(1.05);
+    
+}
+.add-to-cart__btn:active {
+    background: #30c44e;
+    transform: scale(0.95);transition: 0.1s
 }
