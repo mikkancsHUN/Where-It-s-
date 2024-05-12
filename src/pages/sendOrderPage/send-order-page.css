@@ -1,0 +1,32 @@
+.send-order__page {
+    background: var(--clr-background);
+    padding-bottom: 6rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.send-order__total {
+    width: 100%;
+    text-align: center;
+}
+
+.send-order__total p {
+    color: #FFFFFFCC;
+    font-family: var(--font-fire);
+    font-style: italic;
+    font-size: 19px;
+}
+
+.send-order__total-price {
+    color: var(--clr-white);
+    font-family: var(--font-fire);
+    font-size: 32px;
+    font-weight: 700;
+    text-shadow: 1px 1px 1px var(--clr-pink);
+}

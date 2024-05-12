@@ -1,0 +1,26 @@
+.add-to-cart__details {
+    text-align: center;
+}
+
+.add-to-cart__heading {
+    font-family: var(--font-sansita);
+    font-weight: 400;
+    font-size: 35px;
+    color: var(--clr-pink);
+}
+
+.add-to-cart__time {
+    font-family: var(--font-fire);
+    color: var(--clr-blue);
+    font-weight: 600;
+    font-size: 19px;
+    margin-top: 0.5rem;
+}
+
+.add-to-cart__place {
+    font-family: var(--font-fire);
+    color: #FFFFFFB2;
+    font-size: 16px;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
