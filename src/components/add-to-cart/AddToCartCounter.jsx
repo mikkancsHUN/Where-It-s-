@@ -27,15 +27,16 @@ function AddToCartCounter() {
   };
 
   const updateLocalStorage = (newTicketCount, pricePerTicket) => {
-    const orderDataList = JSON.parse(localStorage.getItem('orderData')) || [];
-    const updatedOrderDataList = orderDataList.map((item) => {
+    const selectedEvents = JSON.parse(localStorage.getItem('selectedEvents')) || [];
+    const updatedselectedEvents = selectedEvents.map((item) => {
       if (item.id === selectedEvent.id) {
         return { ...item, ticketCount: newTicketCount, price: pricePerTicket * newTicketCount };
       }
       return item;
     });
-    localStorage.setItem('orderData', JSON.stringify(updatedOrderDataList));
+    localStorage.setItem('selectedEvents', JSON.stringify(updatedselectedEvents));
   };
+  
 
   return (
     <section className='add-to-cart__counter'>

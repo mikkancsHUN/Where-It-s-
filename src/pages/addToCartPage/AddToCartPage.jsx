@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom'; // useNavigate importálása
+import { useNavigate } from 'react-router-dom';
 import AddToCartBtn from '../../components/add-to-cart/AddToCartBtn';
 import AddToCartCounter from '../../components/add-to-cart/AddToCartCounter';
 import AddToCartDetails from '../../components/add-to-cart/AddToCartDetails';
@@ -18,7 +18,13 @@ function AddToCartPage() {
       eventName: selectedEvent.name,
       eventTime: `${selectedEvent.when.date} kl ${selectedEvent.when.from} - ${selectedEvent.when.to}`,
       ticketCount: ticketCount,
-      price: totalPrice // Ár hozzáadása az orderData objektumhoz
+      price: totalPrice, // Ár hozzáadása az orderData objektumhoz
+      when: {
+        date: selectedEvent.when.date,
+        from: selectedEvent.when.from,
+        to: selectedEvent.when.to
+      },
+      where: selectedEvent.where
     };
 
     // Korábbi rendelések lekérése localStorage-ből
@@ -30,7 +36,10 @@ function AddToCartPage() {
     // Frissített rendelések mentése localStorage-be
     localStorage.setItem('orderData', JSON.stringify(updatedOrders));
 
+    localStorage.removeItem('selectedEvents');
+
     navigate('/sendorder');
+    
   };
   
   return (
@@ -47,4 +56,3 @@ function AddToCartPage() {
 }
 
 export default AddToCartPage;
-

@@ -26,16 +26,20 @@ function EventsList() {
       });
   }, []);
 
-  // console.log('Loaded Events:', events); // Debugging
-
   if (events.length === 0) {
     return <p className='warning'>Loading events...</p>;
   }
 
   const handleClick = (event) => {
-    // Az esemény id-jének elmentése local storage-ba
-    localStorage.setItem('orderData', JSON.stringify([{ ...event, ticketCount: 1 }]));
-
+    // Az összes esemény lekérése a localStorage-ból
+    const allEvents = JSON.parse(localStorage.getItem('selectedEvents')) || [];
+  
+    // Az új esemény hozzáadása az összes eseményhez
+    const updatedEvents = [...allEvents, event];
+  
+    // Frissített események mentése localStorage-ba
+    localStorage.setItem('selectedEvents', JSON.stringify(updatedEvents));
+  
     setSelectedEvent(event); // Az állapot beállítása a kontextusban
     setTicketCount(1); // Alapértelmezett jegyszám egyre állítása
     navigate('/addtocard'); // Navigálás a kosár oldalra
