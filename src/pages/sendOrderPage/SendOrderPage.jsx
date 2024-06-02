@@ -1,18 +1,32 @@
 
 import SendOrderBtn from '../../components/send-order/SendOrderBtn';
-import SendOrderList from '../../components/send-order/SendOrderList';
+import SendOrderListItem from '../../components/send-order/SendOrderListItem';
+import useOrderStore from '../../zustandStore';
 import './send-order-page.css';
+import { useEffect } from 'react';
+
 
 function SendOrderPage() {
-  const orders = []; // feltételezzük, hogy az összes rendelés adatait tartalmazza
+  const { orderDataList, setOrderDataList } = useOrderStore((state) => ({
+    orderDataList: state.orderDataList,
+    setOrderDataList: state.setOrderDataList,
+  }));
 
-  // Események összes árának kiszámítása
-  const totalAmount = orders.reduce((total, order) => total + order.price * order.quantity, 0);
+  useEffect(() => {
+    const storedOrderData = JSON.parse(localStorage.getItem('orderData')) || [];
+    setOrderDataList(storedOrderData);
+  }, [setOrderDataList]);
+
+  const totalAmount = orderDataList.reduce((total, order) => total + order.price * order.ticketCount, 0);
 
   return (
     <section className='send-order__page'>
       <h1>Order</h1>
-      <SendOrderList orders={orders} />
+      <ul>
+        {orderDataList.map((orderData, index) => (
+          <SendOrderListItem key={index} orderData={orderData} index={index} />
+        ))}
+      </ul>
       <article className='send-order__total'>
         <p>Totalt värde på order</p>
         <span className='send-order__total-price'>{totalAmount} sek</span>

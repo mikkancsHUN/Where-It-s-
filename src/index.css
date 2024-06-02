@@ -28,6 +28,10 @@
   margin: 0;
 }
 
+.app, .nav {
+  max-width: 500px;
+}
+
 h1 {
   color: var(--clr-pink);
   font-family: var(--font-sansita);
