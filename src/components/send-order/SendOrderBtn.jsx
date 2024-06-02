@@ -1,27 +1,24 @@
 import { useNavigate } from 'react-router-dom';
 import './send-order-btn.css';
-import { useEffect, useState } from 'react'; // useEffect és useState importálása
-import { v4 as uuidv4 } from 'uuid'; // UUID generálásához
 
 function SendOrderBtn() {
   const navigate = useNavigate();
-  const [randomID, setRandomID] = useState(''); // randomID állapot létrehozása
-
-  useEffect(() => {
-    // Random 5 karakterből álló UUID generálása, amikor a komponens mountolódik
-    const generatedID = generateRandomID();
-    setRandomID(generatedID);
-  }, []); // Üres függvénylista, hogy csak a mount során fusson le
 
   const handleClick = () => {
-    // OrderData lekérése a localStorage-ból
     const orderData = JSON.parse(localStorage.getItem('orderData')) || [];
+    
+    const updatedOrders = orderData.flatMap((order) => {
+      const section = generateSectionLetter();
+      return Array.from({ length: order.ticketCount }, (_, index) => ({
+        ...order,
+        section,
+        seatNumber: index + 1,
+        id: generateUniqueId(),  // Minden jegyhez külön egyedi azonosító generálása
+      }));
+    });
 
-    // RandomID hozzáadása minden eseményhez
-    const orderWithID = orderData.map(event => ({ ...event, randomID: randomID }));
-
-    // Új localstorage mentés tickets névvel
-    localStorage.setItem('tickets', JSON.stringify(orderWithID));
+    // Új localStorage mentés tickets névvel
+    localStorage.setItem('tickets', JSON.stringify(updatedOrders));
 
     // OrderData törlése a localStorage-ból
     localStorage.removeItem('orderData');
@@ -30,9 +27,22 @@ function SendOrderBtn() {
     navigate('/tickets');
   };
 
-  const generateRandomID = () => {
-    return uuidv4().substr(0, 5); // Az UUID első 5 karakterének kivágása
-  };
+  // Egyedi azonosító generálása
+  function generateUniqueId() {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const idLength = 5;
+    let randomId = '';
+    for (let i = 0; i < idLength; i++) {
+      randomId += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return randomId;
+  }
+
+  // Szekció betű generálása
+  function generateSectionLetter() {
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    return letters.charAt(Math.floor(Math.random() * letters.length));
+  }
 
   return (
     <button className='send-order__btn' onClick={handleClick}>Skicka order</button>

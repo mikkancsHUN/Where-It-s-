@@ -1,43 +1,34 @@
-import  { useState } from 'react';
 import './send-order-list-item.css';
+import useOrderStore from '../../zustandStore';
 
 function SendOrderListItem({ orderData, index }) {
-  const [updatedOrderData, setUpdatedOrderData] = useState(orderData);
+  const { updateOrder } = useOrderStore((state) => ({
+    updateOrder: state.updateOrder,
+  }));
 
   const increaseQuantity = () => {
-    const newTicketCount = updatedOrderData.ticketCount + 1;
-    setUpdatedOrderData({ ...updatedOrderData, ticketCount: newTicketCount });
-    updateLocalStorage(newTicketCount);
+    const newTicketCount = orderData.ticketCount + 1;
+    const updatedOrderData = { ...orderData, ticketCount: newTicketCount };
+    updateOrder(updatedOrderData);
   };
 
   const decreaseQuantity = () => {
-    if (updatedOrderData.ticketCount > 1) {
-      const newTicketCount = updatedOrderData.ticketCount - 1;
-      setUpdatedOrderData({ ...updatedOrderData, ticketCount: newTicketCount });
-      updateLocalStorage(newTicketCount);
+    if (orderData.ticketCount > 1) {
+      const newTicketCount = orderData.ticketCount - 1;
+      const updatedOrderData = { ...orderData, ticketCount: newTicketCount };
+      updateOrder(updatedOrderData);
     }
-  };
-
-  const updateLocalStorage = (newTicketCount) => {
-    const orderDataList = JSON.parse(localStorage.getItem('orderData')) || [];
-    const updatedOrderDataList = orderDataList.map((item) => {
-      if (item.eventName === updatedOrderData.eventName) {
-        return { ...item, ticketCount: newTicketCount };
-      }
-      return item;
-    });
-    localStorage.setItem('orderData', JSON.stringify(updatedOrderDataList));
   };
 
   return (
     <li className="send-order__list-item" key={index}>
       <article className='send-order__details'>
-        <h2 className='send-order__heading'>{updatedOrderData.eventName}</h2>
-        <p className='send-order__time'>{updatedOrderData.eventTime}</p>
+        <h2 className='send-order__heading'>{orderData.eventName}</h2>
+        <p className='send-order__time'>{orderData.eventTime}</p>
       </article>
       <div className="send-order__quantity-box">
         <button className='send-order__quantity-btn' onClick={decreaseQuantity}>-</button>
-        <span className='send-order__quantity'>{updatedOrderData.ticketCount}</span>
+        <span className='send-order__quantity'>{orderData.ticketCount}</span>
         <button className='send-order__quantity-btn' onClick={increaseQuantity}>+</button>
       </div>
     </li>
